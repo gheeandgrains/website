@@ -1,0 +1,1892 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ghee &amp; Grains - Artisanal millet biscuits made with pure desi ghee. No preservatives, no maida, no refined sugar. Handcrafted in small batches.">
+    <meta name="keywords"
+        content="millet biscuits, desi ghee biscuits, healthy snacks, artisanal biscuits, traditional Indian biscuits">
+    <title>Ghee &amp; Grains | Pure Tradition. Pure Taste.</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&amp;display=swap"
+        rel="stylesheet">
+    <script src="/_sdk/element_sdk.js"></script>
+    <script src="/_sdk/data_sdk.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FDF8F3',
+                        warmwhite: '#FFFBF7',
+                        gold: '#C9A962',
+                        brown: '#5D4E37',
+                        terracotta: '#C67B5C'
+                    },
+                    fontFamily: {
+                        playfair: ['Playfair Display', 'serif'],
+                        cormorant: ['Cormorant Garamond', 'serif'],
+                        dm: ['DM Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .gradient-gold {
+            background: linear-gradient(135deg, #C9A962 0%, #D4B978 50%, #C9A962 100%);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #5D4E37 0%, #C9A962 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-gold {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(201, 169, 98, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 15px rgba(201, 169, 98, 0);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(93, 78, 55, 0.25);
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .progress-bar {
+            transition: width 1s ease-out;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C9A962;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .testimonial-slide {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .ingredient-card {
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-card:hover {
+            transform: scale(1.05);
+        }
+
+        .size-btn {
+            transition: all 0.2s ease;
+        }
+
+        .size-btn.active {
+            background: #C9A962;
+            color: white;
+        }
+
+        .mobile-menu {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .counter-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .toast {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body class="h-full bg-cream font-dm text-brown overflow-auto">
+    <div id="app-wrapper" class="w-full h-full">
+        <!-- Toast Container -->
+        <div id="toast-container" class="fixed top-24 right-4 z-50 space-y-2"></div><!-- Navigation -->
+        <nav id="navbar"
+            class="sticky top-0 z-40 bg-warmwhite/95 backdrop-blur-md shadow-sm transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16 md:h-20">
+                    <!-- Logo --> <a href="#" class="flex items-center space-x-2">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-full overflow-hidden flex items-center justify-center">
+                            <img src="images/Logo.png" alt="Ghee & Grains" class="w-full h-full object-contain">
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="font-playfair text-lg md:text-xl font-bold text-brown">Ghee &amp; Grains</span>
+                            <span class="text-xs text-brown/60 font-cormorant italic hidden sm:block">Pure Without
+                                Exception</span>
+                        </div>
+                    </a> <!-- Desktop Navigation -->
+                    <div class="hidden lg:flex items-center space-x-8">
+                        <a href="#home" class="nav-link text-brown/80 hover:text-brown font-medium">Home</a> <a
+                            href="#products" class="nav-link text-brown/80 hover:text-brown font-medium">Our
+                            Biscuits</a> <a href="#ingredients"
+                            class="nav-link text-brown/80 hover:text-brown font-medium">Ingredients</a> <a href="#story"
+                            class="nav-link text-brown/80 hover:text-brown font-medium">Why We Exist</a> <a
+                            href="#combos" class="nav-link text-brown/80 hover:text-brown font-medium">Combos</a> <a
+                            href="#testimonials"
+                            class="nav-link text-brown/80 hover:text-brown font-medium">Testimonials</a> <a
+                            href="#order"
+                            class="btn-primary gradient-gold text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-xl">
+                            Order Fresh Batch </a>
+                    </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn"
+                        class="lg:hidden p-2 rounded-lg hover:bg-cream transition-colors" aria-label="Toggle menu">
+                        <svg class="w-6 h-6 text-brown" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                            <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg></button>
+                </div>
+            </div><!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="mobile-menu lg:hidden absolute top-full left-0 right-0 bg-warmwhite shadow-lg transform -translate-y-full opacity-0 pointer-events-none">
+                <div class="px-4 py-6 space-y-4">
+                    <a href="#home"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Home</a> <a
+                        href="#products"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Our
+                        Biscuits</a> <a href="#ingredients"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Ingredients</a>
+                    <a href="#story"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Why We
+                        Exist</a> <a href="#combos"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Combos</a>
+                    <a href="#testimonials"
+                        class="block text-brown/80 hover:text-brown font-medium py-2 border-b border-cream">Testimonials</a>
+                    <a href="#order"
+                        class="block gradient-gold text-white text-center px-6 py-3 rounded-full font-semibold mt-4">
+                        Order Fresh Batch </a>
+                </div>
+            </div>
+        </nav><!-- Hero Section -->
+        <section id="home"
+            class="bg-gradient-to-br from-warmwhite via-cream to-warmwhite py-12 md:py-20 lg:py-28 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                    <!-- Left Content -->
+                    <div class="text-center lg:text-left space-y-6 fade-in-up">
+                        <div
+                            class="inline-flex items-center bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg> Handcrafted with Love
+                        </div>
+                        <h1 id="hero-headline"
+                            class="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-brown leading-tight">
+                            Pure Tradition.<br><span class="text-gradient">Pure Taste.</span></h1>
+                        <p id="hero-subheadline"
+                            class="font-cormorant text-xl sm:text-2xl md:text-3xl text-brown/70 italic">Millet biscuits
+                            made with pure desi ghee</p><!-- Trust Points -->
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 text-sm">
+                            <span class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg> No Preservatives </span> <span
+                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg> No Maida </span> <span
+                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg> No Refined Sugar </span> <span
+                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg> No Chemicals </span>
+                        </div>
+                        <p class="text-brown/60 text-base md:text-lg max-w-lg mx-auto lg:mx-0">Handcrafted in small
+                            batches using ancient grains and traditional recipes passed down through generations.</p>
+                        <!-- CTA Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                            <a href="#order"
+                                class="btn-primary gradient-gold text-white px-8 py-4 rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl pulse-gold">
+                                Order Fresh Batch </a> <a href="#products"
+                                class="border-2 border-brown/30 text-brown px-8 py-4 rounded-full font-semibold text-lg hover:border-gold hover:text-gold transition-colors">
+                                Explore Biscuits </a>
+                        </div>
+                    </div><!-- Right Content - Hero Image -->
+                    <div class="relative flex justify-center lg:justify-end">
+                        <div class="relative float-animation">
+                            <!-- Decorative Elements -->
+                            <div class="absolute -top-8 -left-8 w-24 h-24 bg-gold/20 rounded-full blur-2xl"></div>
+                            <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-terracotta/20 rounded-full blur-2xl">
+                            </div><!-- Main Image Container -->
+                            <div class="relative w-80 sm:w-96 md:w-[420px] lg:w-[480px]">
+                                <img src="images/GroupPhoto.png" alt="Ghee and Grains Biscuits"
+                                    class="w-full h-auto object-cover rounded-2xl shadow-2xl">
+                            </div><!-- Floating Badges -->
+                            <div class="absolute -top-4 right-0 bg-white px-4 py-2 rounded-full shadow-lg">
+                                <span class="text-sm font-semibold text-gold">100% Natural</span>
+                            </div>
+                            <div class="absolute -bottom-4 left-0 bg-white px-4 py-2 rounded-full shadow-lg">
+                                <span class="text-sm font-semibold text-terracotta">Small Batch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Trust Badges Section -->
+        <section class="bg-brown py-8 md:py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-2xl md:text-3xl">🌾</span>
+                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Gluten-Friendly</span>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-2xl md:text-3xl">🧈</span>
+                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Pure Desi Ghee</span>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-2xl md:text-3xl">🚫</span>
+                        </div><span class="text-warmwhite font-medium text-sm md:text-base">No Preservatives</span>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-2xl md:text-3xl">🍯</span>
+                        </div><span class="text-warmwhite font-medium text-sm md:text-base">No Refined Sugar</span>
+                    </div>
+                    <div class="flex flex-col items-center text-center col-span-2 md:col-span-1">
+                        <div
+                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-2xl md:text-3xl">🌿</span>
+                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Millet Based</span>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Social Proof Counters -->
+        <section class="bg-cream py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <div class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-gold counter-value"
+                            data-target="1200">
+                            0
+                        </div>
+                        <div class="text-brown/70 mt-2 text-sm md:text-base">
+                            Orders Delivered
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center">
+                            <span
+                                class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-gold counter-value"
+                                data-target="4.9" data-decimal="true">0</span>
+                            <svg class="w-6 h-6 md:w-8 md:h-8 text-gold ml-1" fill="currentColor" viewbox="0 0 20 20">
+                                <path
+                                    d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                        </div>
+                        <div class="text-brown/70 mt-2 text-sm md:text-base">
+                            Customer Rating
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-gold counter-value"
+                            data-target="90">
+                            0
+                        </div>
+                        <div class="text-brown/70 mt-2 text-sm md:text-base">
+                            Day Shelf Life
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-gold counter-value"
+                            data-target="100">
+                            0
+                        </div>
+                        <div class="text-brown/70 mt-2 text-sm md:text-base">
+                            % Natural Ingredients
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Batch Scarcity System -->
+        <section class="bg-gradient-to-r from-brown via-brown/95 to-brown py-10 md:py-14">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div
+                    class="inline-flex items-center bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2 animate-pulse" fill="currentColor" viewbox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                            clip-rule="evenodd" />
+                    </svg> Fresh Batch Cycle
+                </div>
+                <h2 class="font-playfair text-2xl md:text-3xl lg:text-4xl font-bold text-warmwhite mb-4">Next Fresh
+                    Batch In <span id="batch-countdown" class="text-gold">5 Days</span></h2>
+                <p class="text-warmwhite/70 mb-8 max-w-2xl mx-auto">We bake in small batches every 6 days to ensure
+                    maximum freshness. Pre-order now to secure your spot in the next batch!</p><!-- Progress Bar -->
+                <div class="max-w-xl mx-auto">
+                    <div class="flex justify-between text-sm text-warmwhite/70 mb-2">
+                        <span>Batch Allocation</span> <span id="batch-percentage">72%</span>
+                    </div>
+                    <div class="h-4 bg-warmwhite/20 rounded-full overflow-hidden">
+                        <div id="batch-progress" class="h-full gradient-gold progress-bar rounded-full shimmer"
+                            style="width: 72%"></div>
+                    </div>
+                    <div id="batch-status"
+                        class="mt-3 inline-flex items-center bg-terracotta/20 text-terracotta px-4 py-2 rounded-full text-sm font-medium">
+                        <span class="w-2 h-2 bg-terracotta rounded-full mr-2 animate-pulse"></span> Filling Fast - 28%
+                        spots left
+                    </div>
+                </div>
+            </div>
+        </section><!-- Products Section -->
+        <section id="products" class="bg-warmwhite py-20 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-14">
+                    <span class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Our Collection
+                    </span>
+
+                    <h2 class="font-playfair text-4xl md:text-5xl font-bold text-brown mb-4">
+                        Artisanal Biscuits
+                    </h2>
+
+                    <p class="font-cormorant text-xl text-brown/60 italic max-w-2xl mx-auto">
+                        Each biscuit tells a story of tradition, purity, and love
+                    </p>
+                </div>
+
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+
+                    <!-- PRODUCT 1 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-hover"
+                        data-product="ajwain">
+
+                        <div class="relative h-64 overflow-hidden">
+
+                            <img src="images/Ajwain Biscuit.png" alt="Classic Ajwain Saunf"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+
+                            <div
+                                class="absolute top-4 right-4 bg-terracotta text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Bestseller
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-6">
+
+                            <h3 class="font-playfair text-2xl font-bold text-brown mb-2">
+                                Classic Ajwain Saunf
+                            </h3>
+
+                            <p class="text-brown/60 text-sm mb-5">
+                                Traditional savory digestive biscuit infused with ajwain and saunf — perfect with chai
+                            </p>
+
+
+                            <div class="flex gap-2 mb-5">
+
+                                <button class="size-btn active px-4 py-2 rounded-full text-sm border border-gold"
+                                    data-size="100" data-price="149">
+                                    100g
+                                </button>
+
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="250" data-price="329">
+                                    250g
+                                </button>
+
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="500" data-price="699">
+                                    500g
+                                </button>
+
+                            </div>
+
+
+                            <div class="flex items-center justify-between">
+
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-brown/50">Starting from</span>
+                                    <span class="font-playfair text-3xl font-bold text-gold product-price">₹149</span>
+                                </div>
+
+                                <button
+                                    class="add-to-cart gradient-gold text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
+                                    Add to Order
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- PRODUCT 2 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-hover"
+                        data-product="coconut">
+
+                        <div class="relative h-64 overflow-hidden">
+
+                            <img src="images/Coconut Biscuit.png" alt="Coconut Gur Bliss"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+
+                            <div
+                                class="absolute top-4 right-4 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Sweet
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-6">
+
+                            <h3 class="font-playfair text-2xl font-bold text-brown mb-2">
+                                Coconut Gur Bliss
+                            </h3>
+
+                            <p class="text-brown/60 text-sm mb-5">
+                                Sweet coconut biscuits made with jaggery and cardamom — naturally sweet and aromatic
+                            </p>
+
+
+                            <div class="flex gap-2 mb-5">
+
+                                <button class="size-btn active px-4 py-2 rounded-full text-sm border border-gold"
+                                    data-size="100" data-price="169">
+                                    100g
+                                </button>
+
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="250" data-price="369">
+                                    250g
+                                </button>
+
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="500" data-price="749">
+                                    500g
+                                </button>
+
+                            </div>
+
+
+                            <div class="flex items-center justify-between">
+
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-brown/50">Starting from</span>
+                                    <span class="font-playfair text-3xl font-bold text-gold product-price">₹169</span>
+                                </div>
+
+                                <button
+                                    class="add-to-cart gradient-gold text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
+                                    Add to Order
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                    <!-- PRODUCT 3 -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 card-hover"
+                        data-product="kaju">
+
+                        <div class="relative h-64 overflow-hidden">
+
+                            <img src="images/Shahi Kaju Biscuit.png" alt="Shahi Kaju Nourish"
+                                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+
+                            <div
+                                class="absolute top-4 right-4 bg-brown text-white text-xs font-bold px-3 py-1 rounded-full">
+                                Premium
+                            </div>
+
+                        </div>
+
+
+                        <div class="p-6">
+
+                            <h3 class="font-playfair text-2xl font-bold text-brown mb-2">
+                                Shahi Kaju Nourish
+                            </h3>
+
+                            <p class="text-brown/60 text-sm mb-5">
+                                Premium cashew biscuits made with pure ghee — rich, indulgent, and nutritious
+                            </p>
+                            <div class="flex gap-2 mb-5">
+                                <button class="size-btn active px-4 py-2 rounded-full text-sm border border-gold"
+                                    data-size="100" data-price="159">
+                                    100g
+                                </button>
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="250" data-price="349">
+                                    250g
+                                </button>
+                                <button
+                                    class="size-btn px-4 py-2 rounded-full text-sm border border-brown/20 hover:border-gold"
+                                    data-size="500" data-price="719">
+                                    500g
+                                </button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex flex-col">
+                                    <span class="text-xs text-brown/50">Starting from</span>
+                                    <span class="font-playfair text-3xl font-bold text-gold product-price">₹159</span>
+                                </div>
+                                <button
+                                    class="add-to-cart gradient-gold text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
+                                    Add to Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Combo Bundles Section -->
+        <section id="combos" class="bg-cream py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <span
+                        class="inline-block bg-terracotta/10 text-terracotta px-4 py-2 rounded-full text-sm font-medium mb-4">Save
+                        More</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-brown mb-4">Curated Combo
+                        Packs</h2>
+                    <p class="font-cormorant text-xl text-brown/60 italic max-w-2xl mx-auto">Bundle your favorites and
+                        enjoy special savings</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Combo 1 -->
+                    <div class="card-hover bg-white rounded-2xl p-6 shadow-lg relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-terracotta text-white text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Save ₹49
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🍪</span> <span class="text-3xl">🥥</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Ajwain + Coconut Duo</h3>
+                        <p class="text-brown/60 text-sm mb-4">250g each — Perfect balance of savory &amp; sweet</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-brown/40 line-through text-sm">₹698</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹649</span>
+                            </div><button
+                                class="combo-add gradient-gold text-white px-4 py-2 rounded-full text-sm font-semibold"
+                                data-combo="ajwain-coconut" data-price="649">Add</button>
+                        </div>
+                    </div><!-- Combo 2 -->
+                    <div class="card-hover bg-white rounded-2xl p-6 shadow-lg relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-terracotta text-white text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Save ₹59
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🍪</span> <span class="text-3xl">🥜</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Ajwain + Kaju Duo</h3>
+                        <p class="text-brown/60 text-sm mb-4">250g each — Digestive meets indulgence</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-brown/40 line-through text-sm">₹678</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹619</span>
+                            </div><button
+                                class="combo-add gradient-gold text-white px-4 py-2 rounded-full text-sm font-semibold"
+                                data-combo="ajwain-kaju" data-price="619">Add</button>
+                        </div>
+                    </div><!-- Combo 3 -->
+                    <div class="card-hover bg-white rounded-2xl p-6 shadow-lg relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-terracotta text-white text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Save ₹69
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🥥</span> <span class="text-3xl">🥜</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Coconut + Kaju Duo</h3>
+                        <p class="text-brown/60 text-sm mb-4">250g each — Sweet &amp; nutty perfection</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-brown/40 line-through text-sm">₹718</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹649</span>
+                            </div><button
+                                class="combo-add gradient-gold text-white px-4 py-2 rounded-full text-sm font-semibold"
+                                data-combo="coconut-kaju" data-price="649">Add</button>
+                        </div>
+                    </div><!-- Discovery Pack -->
+                    <div
+                        class="card-hover bg-gradient-to-br from-gold/10 to-terracotta/10 rounded-2xl p-6 shadow-lg relative overflow-hidden border-2 border-gold/30">
+                        <div
+                            class="absolute top-0 right-0 bg-gold text-white text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Most Popular
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🍪</span> <span class="text-3xl">🥥</span> <span
+                                class="text-3xl">🥜</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Discovery Pack</h3>
+                        <p class="text-brown/60 text-sm mb-4">100g of each — Try all three flavors!</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-brown/40 line-through text-sm">₹477</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹399</span>
+                            </div><button
+                                class="combo-add gradient-gold text-white px-4 py-2 rounded-full text-sm font-semibold"
+                                data-combo="discovery" data-price="399">Add</button>
+                        </div>
+                    </div><!-- Family Pack -->
+                    <div class="card-hover bg-white rounded-2xl p-6 shadow-lg relative overflow-hidden">
+                        <div
+                            class="absolute top-0 right-0 bg-brown text-white text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Save ₹129
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🍪</span> <span class="text-3xl">🥥</span> <span
+                                class="text-3xl">🥜</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Family Pack</h3>
+                        <p class="text-brown/60 text-sm mb-4">250g of each — Perfect for the whole family</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-brown/40 line-through text-sm">₹1047</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹918</span>
+                            </div><button
+                                class="combo-add gradient-gold text-white px-4 py-2 rounded-full text-sm font-semibold"
+                                data-combo="family" data-price="918">Add</button>
+                        </div>
+                    </div><!-- Premium Box -->
+                    <div
+                        class="card-hover bg-gradient-to-br from-brown to-brown/90 rounded-2xl p-6 shadow-lg relative overflow-hidden text-warmwhite">
+                        <div
+                            class="absolute top-0 right-0 bg-gold text-brown text-xs font-bold px-4 py-2 rounded-bl-2xl">
+                            Save ₹249
+                        </div>
+                        <div class="flex gap-2 mb-4">
+                            <span class="text-3xl">🎁</span>
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold mb-2">Premium Gift Box</h3>
+                        <p class="text-warmwhite/70 text-sm mb-4">500g of each — Luxury gifting at its finest</p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-warmwhite/40 line-through text-sm">₹2167</span> <span
+                                    class="font-playfair text-xl font-bold text-gold ml-2">₹1918</span>
+                            </div><button
+                                class="combo-add bg-gold text-brown px-4 py-2 rounded-full text-sm font-semibold hover:bg-gold/90"
+                                data-combo="premium" data-price="1918">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Ingredients Education Section -->
+        <section id="ingredients" class="bg-warmwhite py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 md:mb-16">
+                    <span class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium mb-4">Pure
+                        Ingredients</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-brown mb-4">Nature's Finest
+                        Selection</h2>
+                    <p class="font-cormorant text-xl text-brown/60 italic max-w-2xl mx-auto">Every ingredient is chosen
+                        with purpose and care</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+                    <!-- Millets -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Millets.png" alt="Millets" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Millets</h3>
+                        <p class="text-brown/60 text-sm">High fiber, rich in minerals, ancient superfood</p>
+                    </div>
+
+                    <!-- Pure Desi Ghee -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/PureDesiGhee.png" alt="Pure Desi Ghee" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Pure Desi Ghee</h3>
+                        <p class="text-brown/60 text-sm">Healthy fats, aids digestion, rich flavor</p>
+                    </div>
+
+                    <!-- Ajwain -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Ajwain.png" alt="Ajwain" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Ajwain</h3>
+                        <p class="text-brown/60 text-sm">Aids digestion, relieves acidity, aromatic</p>
+                    </div>
+
+                    <!-- Saunf -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Sauf.png" alt="Saunf" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Saunf</h3>
+                        <p class="text-brown/60 text-sm">Gut health, natural freshener, cooling</p>
+                    </div>
+
+                    <!-- Elaichi -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Elachi.png" alt="Elaichi" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Elaichi</h3>
+                        <p class="text-brown/60 text-sm">Divine aroma, digestion, antioxidants</p>
+                    </div>
+
+                    <!-- Jeera -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Jeera.png" alt="Jeera" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Jeera</h3>
+                        <p class="text-brown/60 text-sm">Boosts metabolism, iron-rich, flavor depth</p>
+                    </div>
+
+                    <!-- Jaggery -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Jaggery.png" alt="Jaggery" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Jaggery</h3>
+                        <p class="text-brown/60 text-sm">Natural sweetness, mineral-rich, unrefined</p>
+                    </div>
+
+                    <!-- Coconut -->
+                    <div
+                        class="ingredient-card bg-white rounded-2xl p-7 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div class="w-28 h-28 mx-auto mb-5 rounded-full overflow-hidden">
+                            <img src="images/Coconut.png" alt="Coconut" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-playfair text-lg font-bold text-brown mb-2">Coconut</h3>
+                        <p class="text-brown/60 text-sm">Healthy MCTs, natural sweetness, tropical</p>
+                    </div>
+
+                </div>
+            </div>
+        </section><!-- Real Food vs Industrial Food Comparison -->
+        <section class="bg-cream py-16 md:py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-terracotta/10 text-terracotta px-4 py-2 rounded-full text-sm font-medium mb-4">The
+                        Difference</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-brown mb-4">Real Food vs.
+                        Industrial Food</h2>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Ghee & Grains -->
+                    <div class="bg-gradient-to-br from-gold/10 to-cream rounded-3xl p-8 border-2 border-gold/30">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-gold rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold text-brown">Ghee &amp; Grains</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown"><strong>Pure Desi Ghee</strong> —
+                                    Traditional, nutrient-rich fat</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown"><strong>Millet Flour</strong> — Ancient
+                                    grains, high fiber</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown"><strong>Natural Flavours</strong> — Real
+                                    spices &amp; herbs</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown"><strong>Small-Batch Baking</strong> — Fresh
+                                    every 6 days</span></li>
+                        </ul>
+                    </div><!-- Mass Market Biscuits -->
+                    <div class="bg-white rounded-3xl p-8 border border-brown/10">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-brown/20 rounded-full flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-brown/60" fill="currentColor" viewbox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <h3 class="font-playfair text-2xl font-bold text-brown/60">Mass Market Biscuits</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown/60"><strong>Palm Oil</strong> — Cheap,
+                                    inflammatory fat</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown/60"><strong>Maida</strong> — Refined, stripped
+                                    of nutrition</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown/60"><strong>Artificial Flavours</strong> —
+                                    Chemical additives</span></li>
+                            <li class="flex items-start"><span
+                                    class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-red-500" fill="currentColor" viewbox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clip-rule="evenodd" />
+                                    </svg></span> <span class="text-brown/60"><strong>Chemical Preservatives</strong> —
+                                    Extended shelf life</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Testimonials Section -->
+        <section id="testimonials" class="bg-brown py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span
+                        class="inline-block bg-gold/20 text-gold px-4 py-2 rounded-full text-sm font-medium mb-4">Happy
+                        Customers</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-warmwhite mb-4">What Our
+                        Family Says</h2>
+                </div>
+                <div class="relative">
+                    <div id="testimonials-container" class="overflow-hidden">
+                        <div id="testimonials-track" class="flex transition-transform duration-500">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                                <div class="bg-warmwhite rounded-3xl p-8 md:p-10 text-center">
+                                    <div class="flex justify-center mb-4">
+                                        <span class="text-gold text-2xl">★★★★★</span>
+                                    </div>
+                                    <p class="font-cormorant text-xl md:text-2xl text-brown italic mb-6">"Finally found
+                                        biscuits that remind me of my grandmother's kitchen! The ajwain flavor is
+                                        perfect with my evening chai. My digestion has never been better."</p>
+                                    <div class="flex items-center justify-center">
+                                        <div
+                                            class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-xl">👩</span>
+                                        </div>
+                                        <div class="text-left">
+                                            <p class="font-semibold text-brown">Priya Sharma</p>
+                                            <p class="text-brown/60 text-sm">Mumbai</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Testimonial 2 -->
+                            <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                                <div class="bg-warmwhite rounded-3xl p-8 md:p-10 text-center">
+                                    <div class="flex justify-center mb-4">
+                                        <span class="text-gold text-2xl">★★★★★</span>
+                                    </div>
+                                    <p class="font-cormorant text-xl md:text-2xl text-brown italic mb-6">"As a
+                                        nutritionist, I'm very particular about what I recommend. These biscuits tick
+                                        all the boxes — pure ghee, millets, no chemicals. My clients love them!"</p>
+                                    <div class="flex items-center justify-center">
+                                        <div
+                                            class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-xl">👨‍⚕️</span>
+                                        </div>
+                                        <div class="text-left">
+                                            <p class="font-semibold text-brown">Dr. Rajesh Patel</p>
+                                            <p class="text-brown/60 text-sm">Ahmedabad</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Testimonial 3 -->
+                            <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                                <div class="bg-warmwhite rounded-3xl p-8 md:p-10 text-center">
+                                    <div class="flex justify-center mb-4">
+                                        <span class="text-gold text-2xl">★★★★★</span>
+                                    </div>
+                                    <p class="font-cormorant text-xl md:text-2xl text-brown italic mb-6">"My kids
+                                        refused to eat healthy snacks until we discovered the Coconut Gur Bliss. Now
+                                        they ask for these instead of store-bought cookies. A mother's dream!"</p>
+                                    <div class="flex items-center justify-center">
+                                        <div
+                                            class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-xl">👩‍👧‍👦</span>
+                                        </div>
+                                        <div class="text-left">
+                                            <p class="font-semibold text-brown">Anita Reddy</p>
+                                            <p class="text-brown/60 text-sm">Bangalore</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Testimonial 4 -->
+                            <div class="testimonial-slide w-full flex-shrink-0 px-4">
+                                <div class="bg-warmwhite rounded-3xl p-8 md:p-10 text-center">
+                                    <div class="flex justify-center mb-4">
+                                        <span class="text-gold text-2xl">★★★★★</span>
+                                    </div>
+                                    <p class="font-cormorant text-xl md:text-2xl text-brown italic mb-6">"The Shahi Kaju
+                                        biscuits are pure indulgence without the guilt. You can taste the quality of
+                                        ghee in every bite. Worth every rupee!"</p>
+                                    <div class="flex items-center justify-center">
+                                        <div
+                                            class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center mr-3">
+                                            <span class="text-xl">👨</span>
+                                        </div>
+                                        <div class="text-left">
+                                            <p class="font-semibold text-brown">Vikram Singh</p>
+                                            <p class="text-brown/60 text-sm">Delhi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- Navigation Dots -->
+                    <div class="flex justify-center mt-8 gap-2">
+                        <button class="testimonial-dot w-3 h-3 rounded-full bg-gold transition-all"
+                            data-index="0"></button> <button
+                            class="testimonial-dot w-3 h-3 rounded-full bg-warmwhite/30 transition-all"
+                            data-index="1"></button> <button
+                            class="testimonial-dot w-3 h-3 rounded-full bg-warmwhite/30 transition-all"
+                            data-index="2"></button> <button
+                            class="testimonial-dot w-3 h-3 rounded-full bg-warmwhite/30 transition-all"
+                            data-index="3"></button>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Brand Story Section -->
+        <section id="story" class="bg-gradient-to-br from-warmwhite via-cream to-warmwhite py-16 md:py-24">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <span
+                        class="inline-block bg-terracotta/10 text-terracotta px-4 py-2 rounded-full text-sm font-medium mb-6">Our
+                        Story</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-brown mb-8">Why We Chose
+                        Purity<br>
+                        Over Convenience</h2>
+                    <div class="relative">
+                        <div class="absolute left-1/2 top-0 bottom-0 w-px bg-gold/30 -translate-x-1/2"></div>
+                        <div class="space-y-12">
+                            <div class="relative">
+                                <div class="w-4 h-4 bg-gold rounded-full absolute left-1/2 -translate-x-1/2 top-0">
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg ml-8 md:ml-12 text-left">
+                                    <h3 class="font-playfair text-xl font-bold text-brown mb-3">The Problem We Saw</h3>
+                                    <p class="text-brown/70">Mass-produced snacks have sacrificed health for shelf life.
+                                        Palm oil replaced ghee. Maida replaced millets. Chemicals replaced natural
+                                        flavors. Our children were growing up on "food-like products" instead of real
+                                        food.</p>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div
+                                    class="w-4 h-4 bg-terracotta rounded-full absolute left-1/2 -translate-x-1/2 top-0">
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg mr-8 md:mr-12 text-left">
+                                    <h3 class="font-playfair text-xl font-bold text-brown mb-3">Our Grandmother's Wisdom
+                                    </h3>
+                                    <p class="text-brown/70">We remembered how our grandmothers made biscuits — with
+                                        pure ghee, fresh spices, and love. Every ingredient had a purpose. Every recipe
+                                        was passed down through generations. This wasn't just food; it was nourishment.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="relative">
+                                <div class="w-4 h-4 bg-gold rounded-full absolute left-1/2 -translate-x-1/2 top-0">
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg ml-8 md:ml-12 text-left">
+                                    <h3 class="font-playfair text-xl font-bold text-brown mb-3">Our Mission</h3>
+                                    <p class="text-brown/70">We're bringing back real food. Biscuits that your
+                                        grandmother would approve of. Made with pure desi ghee, ancient millets, and
+                                        traditional recipes. No shortcuts. No compromises. Just pure tradition, pure
+                                        taste.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Order Section -->
+        <section id="order" class="bg-brown py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-start">
+                    <!-- Cart Summary -->
+                    <div class="bg-warmwhite rounded-3xl p-6 md:p-8 shadow-2xl">
+                        <h2 class="font-playfair text-2xl md:text-3xl font-bold text-brown mb-6">Your Order</h2>
+                        <div id="cart-items" class="space-y-4 mb-6">
+                            <div class="text-center text-brown/60 py-8">
+                                <span class="text-4xl mb-4 block">🛒</span>
+                                <p>Your cart is empty</p>
+                                <p class="text-sm mt-2">Add some delicious biscuits!</p>
+                            </div>
+                        </div>
+                        <div id="cart-summary" class="hidden border-t border-brown/10 pt-4">
+                            <div class="flex justify-between text-brown mb-2">
+                                <span>Subtotal</span> <span id="cart-subtotal">₹0</span>
+                            </div>
+                            <div class="flex justify-between text-brown mb-2">
+                                <span>Delivery</span> <span id="cart-delivery">₹50</span>
+                            </div>
+                            <div
+                                class="flex justify-between text-brown font-bold text-lg border-t border-brown/10 pt-2 mt-2">
+                                <span>Total</span> <span id="cart-total">₹0</span>
+                            </div>
+                        </div>
+                    </div><!-- Order Form -->
+                    <div class="bg-warmwhite rounded-3xl p-6 md:p-8 shadow-2xl">
+                        <h2 class="font-playfair text-2xl md:text-3xl font-bold text-brown mb-6">Delivery Details</h2>
+                        <form id="order-form" class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-brown mb-2">Full Name *</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                                    placeholder="Your full name">
+                            </div>
+                            <div>
+                                <label for="whatsapp" class="block text-sm font-medium text-brown mb-2">WhatsApp Number
+                                    *</label> <input type="tel" id="whatsapp" name="whatsapp" required
+                                    class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                                    placeholder="10-digit mobile number">
+                            </div>
+                            <div>
+                                <label for="address" class="block text-sm font-medium text-brown mb-2">Delivery Address
+                                    *</label> <textarea id="address" name="address" required rows="3"
+                                    class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none"
+                                    placeholder="Complete address with pincode"></textarea>
+                            </div>
+                            <div>
+                                <label for="notes" class="block text-sm font-medium text-brown mb-2">Order Notes
+                                    (Optional)</label> <textarea id="notes" name="notes" rows="2"
+                                    class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none"
+                                    placeholder="Any special instructions"></textarea>
+                            </div><button type="submit" id="whatsapp-order-btn"
+                                class="w-full btn-primary bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl font-semibold text-lg flex items-center justify-center gap-3 shadow-lg">
+                                <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                                </svg> Order via WhatsApp </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Feedback Section -->
+        <section class="bg-cream py-16 md:py-24">
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="inline-block bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-medium mb-4">Your
+                        Voice Matters</span>
+                    <h2 class="font-playfair text-3xl md:text-4xl font-bold text-brown mb-4">Share Your Feedback</h2>
+                    <p class="text-brown/60">Help us make your experience even better</p>
+                </div>
+                <form id="feedback-form" class="bg-white rounded-3xl p-6 md:p-8 shadow-lg">
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium text-brown mb-3">How would you rate us?</label>
+                        <div id="star-rating" class="flex justify-center gap-2">
+                            <button type="button"
+                                class="star-btn text-3xl text-brown/20 hover:text-gold transition-colors"
+                                data-rating="1">★</button> <button type="button"
+                                class="star-btn text-3xl text-brown/20 hover:text-gold transition-colors"
+                                data-rating="2">★</button> <button type="button"
+                                class="star-btn text-3xl text-brown/20 hover:text-gold transition-colors"
+                                data-rating="3">★</button> <button type="button"
+                                class="star-btn text-3xl text-brown/20 hover:text-gold transition-colors"
+                                data-rating="4">★</button> <button type="button"
+                                class="star-btn text-3xl text-brown/20 hover:text-gold transition-colors"
+                                data-rating="5">★</button>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="feedback-name" class="block text-sm font-medium text-brown mb-2">Your Name</label>
+                        <input type="text" id="feedback-name"
+                            class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all"
+                            placeholder="Your name">
+                    </div>
+                    <div class="mb-6">
+                        <label for="feedback-text" class="block text-sm font-medium text-brown mb-2">Your
+                            Feedback</label> <textarea id="feedback-text" rows="4"
+                            class="w-full px-4 py-3 rounded-xl border border-brown/20 focus:border-gold focus:ring-2 focus:ring-gold/20 outline-none transition-all resize-none"
+                            placeholder="Tell us about your experience..."></textarea>
+                    </div><button type="submit" id="feedback-submit-btn"
+                        class="w-full gradient-gold text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-shadow">
+                        Submit Feedback </button>
+                </form>
+            </div>
+        </section><!-- Footer -->
+        <footer class="bg-brown py-12 md:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
+                    <div>
+                        <div class="flex items-center space-x-2 mb-4">
+                            <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
+                                <img src="images/Logo.png" alt="Ghee & Grains" class="w-full h-full object-contain">
+                            </div><span class="font-playfair text-xl font-bold text-warmwhite">Ghee &amp; Grains</span>
+                        </div>
+                        <p class="text-warmwhite/60 text-sm">Bringing back traditional recipes with pure desi ghee and
+                            ancient millets.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-playfair text-lg font-bold text-warmwhite mb-5">Quick Links</h4>
+                        <ul class="space-y-3 text-warmwhite/70 text-sm">
+                            <li><a href="#home" class="hover:text-gold transition-colors flex items-center gap-2"> <span
+                                        class="text-gold text-xs">→</span> Home </a></li>
+                            <li><a href="#products" class="hover:text-gold transition-colors flex items-center gap-2">
+                                    <span class="text-gold text-xs">→</span> Our Biscuits </a></li>
+                            <li><a href="#ingredients"
+                                    class="hover:text-gold transition-colors flex items-center gap-2"> <span
+                                        class="text-gold text-xs">→</span> Ingredients </a></li>
+                            <li><a href="#story" class="hover:text-gold transition-colors flex items-center gap-2">
+                                    <span class="text-gold text-xs">→</span> Why We Exist </a></li>
+                            <li><a href="#combos" class="hover:text-gold transition-colors flex items-center gap-2">
+                                    <span class="text-gold text-xs">→</span> Combo Packs </a></li>
+                            <li><a href="#order" class="hover:text-gold transition-colors flex items-center gap-2">
+                                    <span class="text-gold text-xs">→</span> Order Now </a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-warmwhite mb-4">Get in Touch</h4>
+                        <div class="space-y-3"><a href="tel:9463880165"
+                                class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg><span id="phone-display">9463880165</span> </a> <a
+                                href="https://instagram.com/ghee_and_grains" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-3 text-white/70 hover:text-brand-gold transition-colors">
+                                <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg><span id="instagram-display">@ghee_and_grains</span> </a>
+                        </div>
+                    </div>
+                    <!-- <div>
+       <h4 class="font-semibold text-warmwhite mb-4">Contact Us</h4>
+       <ul class="space-y-2 text-warmwhite/60 text-sm">
+        <li class="flex items-center">
+         <svg class="w-4 h-4 mr-2" fill="currentColor" viewbox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+         </svg> +91 94638 80165</li>
+        <li class="flex items-center">
+         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+         </svg> gheeandgrains.milletbiscuits@gmail.com</li>
+       </ul>
+      </div> -->
+                </div><!-- Divider -->
+                <div class="border-t border-warmwhite/10 my-8"></div><!-- Bottom Footer -->
+                <div
+                    class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left">
+                    <p class="text-warmwhite/40 text-xs md:text-sm">© 2026 Ghee &amp; Grains. All rights reserved.</p>
+                    <div class="flex items-center justify-center md:justify-start gap-4 text-xs text-warmwhite/40"><span
+                            class="flex items-center gap-1">❤️ Made with care using pure ingredients</span>
+                    </div>
+                    <p class="text-warmwhite/40 text-xs md:text-sm">Handcrafted. Authentic. Real.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Configuration
+        const defaultConfig = {
+            hero_headline: 'Pure Tradition. Pure Taste.',
+            hero_subheadline: 'Millet biscuits made with pure desi ghee',
+            batch_cycle_days: '6',
+            background_color: '#FDF8F3',
+            surface_color: '#FFFBF7',
+            text_color: '#5D4E37',
+            primary_action_color: '#C9A962',
+            secondary_action_color: '#C67B5C'
+        };
+
+        let config = { ...defaultConfig };
+        let cart = [];
+        let currentTestimonial = 0;
+        let feedbackRating = 0;
+        let testimonialInterval;
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange: async (newConfig) => {
+                    config = { ...defaultConfig, ...newConfig };
+                    updateUI();
+                },
+                mapToCapabilities: (config) => ({
+                    recolorables: [
+                        {
+                            get: () => config.background_color || defaultConfig.background_color,
+                            set: (value) => window.elementSdk.setConfig({ background_color: value })
+                        },
+                        {
+                            get: () => config.surface_color || defaultConfig.surface_color,
+                            set: (value) => window.elementSdk.setConfig({ surface_color: value })
+                        },
+                        {
+                            get: () => config.text_color || defaultConfig.text_color,
+                            set: (value) => window.elementSdk.setConfig({ text_color: value })
+                        },
+                        {
+                            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                            set: (value) => window.elementSdk.setConfig({ primary_action_color: value })
+                        },
+                        {
+                            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                            set: (value) => window.elementSdk.setConfig({ secondary_action_color: value })
+                        }
+                    ],
+                    borderables: [],
+                    fontEditable: undefined,
+                    fontSizeable: undefined
+                }),
+                mapToEditPanelValues: (config) => new Map([
+                    ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
+                    ['hero_subheadline', config.hero_subheadline || defaultConfig.hero_subheadline],
+                    ['batch_cycle_days', config.batch_cycle_days || defaultConfig.batch_cycle_days]
+                ])
+            });
+        }
+
+        // Initialize Data SDK
+        const dataHandler = {
+            onDataChanged(data) {
+                // Feedback stored successfully - can display in future feature
+                console.log('Data updated:', data.length, 'records');
+            }
+        };
+
+        if (window.dataSdk) {
+            window.dataSdk.init(dataHandler);
+        }
+
+        // Update UI based on config
+        function updateUI() {
+            const headline = document.getElementById('hero-headline');
+            if (headline) {
+                const parts = (config.hero_headline || defaultConfig.hero_headline).split('.');
+                headline.innerHTML = `${parts[0]}.<br><span class="text-gradient">${parts[1] || ''}</span>`;
+            }
+
+            const subheadline = document.getElementById('hero-subheadline');
+            if (subheadline) {
+                subheadline.textContent = config.hero_subheadline || defaultConfig.hero_subheadline;
+            }
+
+            updateBatchSystem();
+        }
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            });
+        });
+
+        // Animated Counters
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter-value');
+            const speed = 100;
+
+            counters.forEach(counter => {
+                const target = parseFloat(counter.getAttribute('data-target'));
+                const isDecimal = counter.getAttribute('data-decimal') === 'true';
+                let current = 0;
+                const increment = target / speed;
+
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (current > target) current = target;
+                        counter.textContent = isDecimal ? current.toFixed(1) : Math.floor(current) + '+';
+                        requestAnimationFrame(updateCount);
+                    } else {
+                        counter.textContent = isDecimal ? target.toFixed(1) : target + '+';
+                    }
+                };
+
+                updateCount();
+            });
+        }
+
+        // Intersection Observer for counters
+        const counterSection = document.querySelector('.counter-value').parentElement.parentElement.parentElement;
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counterObserver.observe(counterSection);
+
+        // Batch Scarcity System
+        function updateBatchSystem() {
+            const cycleDays = parseInt(config.batch_cycle_days || defaultConfig.batch_cycle_days);
+            const today = new Date();
+            const startDate = new Date('2024-01-01');
+            const daysSinceStart = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+            const currentDayInCycle = daysSinceStart % cycleDays;
+            const daysRemaining = cycleDays - currentDayInCycle - 1;
+
+            const countdown = document.getElementById('batch-countdown');
+            const percentage = document.getElementById('batch-percentage');
+            const progress = document.getElementById('batch-progress');
+            const status = document.getElementById('batch-status');
+
+            if (daysRemaining === 0) {
+                countdown.textContent = 'Today!';
+                percentage.textContent = '100%';
+                progress.style.width = '100%';
+                status.innerHTML = '<span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>Batch Sealed - Next batch opening tomorrow';
+                status.className = 'mt-3 inline-flex items-center bg-red-500/20 text-red-300 px-4 py-2 rounded-full text-sm font-medium';
+            } else {
+                countdown.textContent = daysRemaining + ' Day' + (daysRemaining > 1 ? 's' : '');
+                const fillPercentage = Math.min(95, 50 + (cycleDays - daysRemaining) * 10);
+                percentage.textContent = fillPercentage + '%';
+                progress.style.width = fillPercentage + '%';
+
+                if (fillPercentage >= 80) {
+                    status.innerHTML = '<span class="w-2 h-2 bg-terracotta rounded-full mr-2 animate-pulse"></span>Filling Fast - ' + (100 - fillPercentage) + '% spots left';
+                    status.className = 'mt-3 inline-flex items-center bg-terracotta/20 text-terracotta px-4 py-2 rounded-full text-sm font-medium';
+                } else {
+                    status.innerHTML = '<span class="w-2 h-2 bg-green-400 rounded-full mr-2"></span>Open for Orders - ' + (100 - fillPercentage) + '% spots available';
+                    status.className = 'mt-3 inline-flex items-center bg-green-500/20 text-green-300 px-4 py-2 rounded-full text-sm font-medium';
+                }
+            }
+        }
+
+        updateBatchSystem();
+
+        // Product Size Selection
+        document.querySelectorAll('[data-product]').forEach(productCard => {
+            const sizeButtons = productCard.querySelectorAll('.size-btn');
+            const priceDisplay = productCard.querySelector('.product-price');
+
+            sizeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sizeButtons.forEach(b => {
+                        b.classList.remove('active');
+                        b.classList.remove('bg-gold', 'text-white', 'border-gold');
+                        b.classList.add('border-brown/20');
+                    });
+                    btn.classList.add('active', 'bg-gold', 'text-white', 'border-gold');
+                    btn.classList.remove('border-brown/20');
+                    priceDisplay.textContent = '₹' + btn.dataset.price;
+                });
+            });
+        });
+
+        // Add to Cart - Products
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productCard = btn.closest('[data-product]');
+                const productName = productCard.querySelector('h3').textContent;
+                const activeSize = productCard.querySelector('.size-btn.active');
+                const size = activeSize.dataset.size + 'g';
+                const price = parseInt(activeSize.dataset.price);
+
+                addToCart({
+                    name: productName,
+                    size: size,
+                    price: price,
+                    quantity: 1,
+                    type: 'product'
+                });
+
+                showToast(`${productName} (${size}) added to cart!`);
+            });
+        });
+
+        // Add to Cart - Combos
+        document.querySelectorAll('.combo-add').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const comboCard = btn.closest('.card-hover');
+                const comboName = comboCard.querySelector('h3').textContent;
+                const price = parseInt(btn.dataset.price);
+
+                addToCart({
+                    name: comboName,
+                    size: 'Combo',
+                    price: price,
+                    quantity: 1,
+                    type: 'combo'
+                });
+
+                showToast(`${comboName} added to cart!`);
+            });
+        });
+
+        // Cart Functions
+        function addToCart(item) {
+            const existingIndex = cart.findIndex(i => i.name === item.name && i.size === item.size);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity++;
+            } else {
+                cart.push(item);
+            }
+            updateCartDisplay();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartSummary = document.getElementById('cart-summary');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartDelivery = document.getElementById('cart-delivery');
+            const cartTotal = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center text-brown/60 py-8">
+                        <span class="text-4xl mb-4 block">🛒</span>
+                        <p>Your cart is empty</p>
+                        <p class="text-sm mt-2">Add some delicious biscuits!</p>
+                    </div>
+                `;
+                cartSummary.classList.add('hidden');
+                return;
+            }
+
+            cartItems.innerHTML = cart.map((item, index) => `
+                <div class="flex items-center justify-between bg-cream rounded-xl p-4">
+                    <div class="flex-1">
+                        <p class="font-semibold text-brown">${item.name}</p>
+                        <p class="text-sm text-brown/60">${item.size} × ${item.quantity}</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="font-semibold text-gold">₹${item.price * item.quantity}</span>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const delivery = subtotal >= 500 ? 0 : 50;
+
+            cartSubtotal.textContent = '₹' + subtotal;
+            cartDelivery.textContent = delivery === 0 ? 'FREE' : '₹' + delivery;
+            cartTotal.textContent = '₹' + (subtotal + delivery);
+            cartSummary.classList.remove('hidden');
+        }
+
+        // Make removeFromCart global
+        window.removeFromCart = removeFromCart;
+
+        // Toast Notification
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast bg-brown text-warmwhite px-6 py-3 rounded-xl shadow-lg flex items-center gap-3';
+            toast.innerHTML = `
+                <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>${message}</span>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Order Form - WhatsApp
+        document.getElementById('order-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                showToast('Please add items to your cart first!');
+                return;
+            }
+
+            const name = document.getElementById('name').value;
+            const whatsapp = document.getElementById('whatsapp').value;
+            const address = document.getElementById('address').value;
+            const notes = document.getElementById('notes').value;
+
+            // Save order to Data SDK
+            if (window.dataSdk) {
+                const orderData = {
+                    type: 'order',
+                    name: name,
+                    whatsapp: whatsapp,
+                    address: address,
+                    notes: notes || '',
+                    feedback: '',
+                    rating: 0,
+                    created_at: new Date().toISOString()
+                };
+
+                const result = await window.dataSdk.create(orderData);
+                if (!result.isOk) {
+                    console.error('Failed to save order');
+                }
+            }
+
+            // Build WhatsApp message
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const delivery = subtotal >= 500 ? 0 : 50;
+            const total = subtotal + delivery;
+
+            let orderDetails = cart.map(item =>
+                `• ${item.name} (${item.size}) × ${item.quantity} = ₹${item.price * item.quantity}`
+            ).join('\n');
+
+            const message = encodeURIComponent(
+                `🍪 *New Order - Ghee & Grains*
+
+*Customer Details:*
+Name: ${name}
+WhatsApp: ${whatsapp}
+Address: ${address}
+${notes ? `Notes: ${notes}` : ''}
+
+*Order Details:*
+${orderDetails}
+
+Subtotal: ₹${subtotal}
+Delivery: ${delivery === 0 ? 'FREE' : '₹' + delivery}
+*Total: ₹${total}*
+
+Thank you for choosing Ghee & Grains! 🙏`
+            );
+
+            window.open(`https://wa.me/919463880165?text=${message}`, '_blank');
+        });
+
+        // Feedback Form
+        const starButtons = document.querySelectorAll('.star-btn');
+        starButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                feedbackRating = parseInt(btn.dataset.rating);
+                starButtons.forEach((b, index) => {
+                    if (index < feedbackRating) {
+                        b.classList.remove('text-brown/20');
+                        b.classList.add('text-gold');
+                    } else {
+                        b.classList.remove('text-gold');
+                        b.classList.add('text-brown/20');
+                    }
+                });
+            });
+        });
+
+        document.getElementById('feedback-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const feedbackName = document.getElementById('feedback-name').value;
+            const feedbackText = document.getElementById('feedback-text').value;
+
+            if (!feedbackRating || !feedbackText) {
+                showToast('Please provide a rating and feedback!');
+                return;
+            }
+
+            const submitBtn = document.getElementById('feedback-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            if (window.dataSdk) {
+                const feedbackData = {
+                    type: 'feedback',
+                    name: feedbackName || 'Anonymous',
+                    whatsapp: '',
+                    address: '',
+                    notes: '',
+                    feedback: feedbackText,
+                    rating: feedbackRating,
+                    created_at: new Date().toISOString()
+                };
+
+                const result = await window.dataSdk.create(feedbackData);
+                if (result.isOk) {
+                    showToast('Thank you for your feedback! 🙏');
+                    document.getElementById('feedback-form').reset();
+                    feedbackRating = 0;
+                    starButtons.forEach(b => {
+                        b.classList.remove('text-gold');
+                        b.classList.add('text-brown/20');
+                    });
+                } else {
+                    showToast('Failed to submit feedback. Please try again.');
+                }
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Feedback';
+        });
+
+        // Testimonials Carousel
+        const testimonialsTrack = document.getElementById('testimonials-track');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const totalTestimonials = 4;
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            testimonialsTrack.style.transform = `translateX(-${index * 100}%)`;
+            testimonialDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-warmwhite/30');
+                    dot.classList.add('bg-gold');
+                } else {
+                    dot.classList.remove('bg-gold');
+                    dot.classList.add('bg-warmwhite/30');
+                }
+            });
+        }
+
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index);
+                goToTestimonial(index);
+                resetTestimonialInterval();
+            });
+        });
+
+        function startTestimonialInterval() {
+            testimonialInterval = setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+                goToTestimonial(currentTestimonial);
+            }, 5000);
+        }
+
+        function resetTestimonialInterval() {
+            clearInterval(testimonialInterval);
+            startTestimonialInterval();
+        }
+
+        startTestimonialInterval();
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // Initialize
+        updateUI();
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9d7fc90554a6a756',t:'MTc3Mjc4MzU5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
