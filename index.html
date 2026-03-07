@@ -214,12 +214,41 @@
                 opacity: 1;
             }
         }
+
+        /* Sticky cart bounce */
+
+        @keyframes cartBounce {
+
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        .cart-bounce {
+            animation: cartBounce 0.35s ease;
+        }
+
+        /* Glow when items exist */
+
+        .cart-active {
+            box-shadow: 0 0 0 6px rgba(201, 169, 98, 0.15);
+        }
     </style>
     <style>
         body {
             box-sizing: border-box;
         }
     </style>
+
 </head>
 
 <body class="h-full bg-cream font-dm text-brown overflow-auto">
@@ -301,31 +330,43 @@
                         <p id="hero-subheadline"
                             class="font-cormorant text-xl sm:text-2xl md:text-3xl text-brown/70 italic">Millet biscuits
                             made with pure desi ghee</p><!-- Trust Points -->
-                        <div class="flex flex-wrap justify-center lg:justify-start gap-3 text-sm">
-                            <span class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
-                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg> No Preservatives </span> <span
-                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
-                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg> No Maida </span> <span
-                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
-                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg> No Refined Sugar </span> <span
-                                class="flex items-center bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
-                                <svg class="w-4 h-4 text-green-600 mr-1.5" fill="currentColor" viewbox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd" />
-                                </svg> No Chemicals </span>
+                        <div class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm">
+
+                            <!-- No Preservatives -->
+                            <span class="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <div class="w-6 h-6 rounded-full overflow-hidden">
+                                    <img src="images/No Preservatives.png" alt="No Preservatives"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                No Preservatives
+                            </span>
+
+                            <!-- No Maida -->
+                            <span class="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <div class="w-6 h-6 rounded-full overflow-hidden">
+                                    <img src="images/No Maida.png" alt="No Maida" class="w-full h-full object-cover">
+                                </div>
+                                No Maida
+                            </span>
+
+                            <!-- No Refined Sugar -->
+                            <span class="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <div class="w-6 h-6 rounded-full overflow-hidden">
+                                    <img src="images/No Refined Sugar.png" alt="No Refined Sugar"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                No Refined Sugar
+                            </span>
+
+                            <!-- No Chemicals -->
+                            <span class="flex items-center gap-2 bg-white/80 px-3 py-1.5 rounded-full shadow-sm">
+                                <div class="w-6 h-6 rounded-full overflow-hidden">
+                                    <img src="images/No Preservatives.png" alt="No Chemicals"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                No Chemicals
+                            </span>
+
                         </div>
                         <p class="text-brown/60 text-base md:text-lg max-w-lg mx-auto lg:mx-0">Handcrafted in small
                             batches using ancient grains and traditional recipes passed down through generations.</p>
@@ -362,36 +403,49 @@
         <section class="bg-brown py-8 md:py-12">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
+
+                    <!-- Gluten Free -->
                     <div class="flex flex-col items-center text-center">
-                        <div
-                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-2xl md:text-3xl">🌾</span>
-                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Gluten-Friendly</span>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gold/20 mb-3">
+                            <img src="images/Gluten Free.png" alt="Gluten Free" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-warmwhite font-medium text-sm md:text-base">Gluten-Free</span>
                     </div>
+
+                    <!-- Pure Desi Ghee -->
                     <div class="flex flex-col items-center text-center">
-                        <div
-                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-2xl md:text-3xl">🧈</span>
-                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Pure Desi Ghee</span>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gold/20 mb-3">
+                            <img src="images/PureDesiGhee.png" alt="Pure Desi Ghee" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-warmwhite font-medium text-sm md:text-base">Pure Desi Ghee</span>
                     </div>
+
+                    <!-- No Preservatives -->
                     <div class="flex flex-col items-center text-center">
-                        <div
-                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-2xl md:text-3xl">🚫</span>
-                        </div><span class="text-warmwhite font-medium text-sm md:text-base">No Preservatives</span>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gold/20 mb-3">
+                            <img src="images/No Preservatives.png" alt="No Preservatives"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-warmwhite font-medium text-sm md:text-base">No Preservatives</span>
                     </div>
+
+                    <!-- No Refined Sugar -->
                     <div class="flex flex-col items-center text-center">
-                        <div
-                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-2xl md:text-3xl">🍯</span>
-                        </div><span class="text-warmwhite font-medium text-sm md:text-base">No Refined Sugar</span>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gold/20 mb-3">
+                            <img src="images/No Refined Sugar.png" alt="No Refined Sugar"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-warmwhite font-medium text-sm md:text-base">No Refined Sugar</span>
                     </div>
+
+                    <!-- Millet Based -->
                     <div class="flex flex-col items-center text-center col-span-2 md:col-span-1">
-                        <div
-                            class="w-14 h-14 md:w-16 md:h-16 bg-gold/20 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-2xl md:text-3xl">🌿</span>
-                        </div><span class="text-warmwhite font-medium text-sm md:text-base">Millet Based</span>
+                        <div class="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden bg-gold/20 mb-3">
+                            <img src="images/Millet Based.png" alt="Millet Based" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-warmwhite font-medium text-sm md:text-base">Millet Based</span>
                     </div>
+
                 </div>
             </div>
         </section><!-- Social Proof Counters -->
@@ -1360,6 +1414,23 @@
             </div>
         </footer>
     </div>
+    <!-- Premium Sticky Cart -->
+    <button id="sticky-cart-btn"
+        class="fixed right-6 bottom-6 z-50 gradient-gold text-white w-16 h-16 rounded-full shadow-xl flex items-center justify-center transition hover:scale-110">
+
+        <!-- Cart Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 6h12m-9 0a1 1 0 100 2 1 1 0 000-2zm8 0a1 1 0 100 2 1 1 0 000-2" />
+        </svg>
+
+        <!-- Count -->
+        <span id="sticky-cart-count"
+            class="absolute -top-2 -right-2 bg-terracotta text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-bold">
+            0
+        </span>
+
+    </button>
     <script>
         // Configuration
         const defaultConfig = {
@@ -1643,6 +1714,7 @@
                     </div>
                 `;
                 cartSummary.classList.add('hidden');
+                updateStickyCart();
                 return;
             }
 
@@ -1670,6 +1742,7 @@
             cartDelivery.textContent = delivery === 0 ? 'FREE' : '₹' + delivery;
             cartTotal.textContent = '₹' + (subtotal + delivery);
             cartSummary.classList.remove('hidden');
+            updateStickyCart();
         }
 
         // Make removeFromCart global
@@ -1883,6 +1956,53 @@ Thank you for choosing Ghee & Grains! 🙏`
             lastScroll = currentScroll;
         });
 
+        // Sticky Cart Logic
+
+        const stickyCartBtn = document.getElementById("sticky-cart-btn");
+        const stickyCartCount = document.getElementById("sticky-cart-count");
+
+        function updateStickyCart() {
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            stickyCartCount.textContent = totalItems;
+
+            // bounce animation
+            stickyCartBtn.classList.add("cart-bounce");
+
+            setTimeout(() => {
+                stickyCartBtn.classList.remove("cart-bounce");
+            }, 300);
+
+            // glow when cart has items
+            if (totalItems > 0) {
+                stickyCartBtn.classList.add("cart-active");
+            } else {
+                stickyCartBtn.classList.remove("cart-active");
+            }
+
+        }
+
+        stickyCartBtn.addEventListener("click", () => {
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+            if (totalItems === 0) {
+
+                document.querySelector("#products").scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            } else {
+
+                document.querySelector("#order").scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        });
+        updateStickyCart();
         // Initialize
         updateUI();
     </script>
