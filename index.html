@@ -1855,38 +1855,79 @@ Thank you for choosing Ghee & Grains! 🙏`
                 return;
             }
 
-            const submitBtn = document.getElementById('feedback-submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Submitting...';
+            // const submitBtn = document.getElementById('feedback-submit-btn');
+            // submitBtn.disabled = true;
+            // submitBtn.textContent = 'Submitting...';
 
-            if (window.dataSdk) {
-                const feedbackData = {
-                    type: 'feedback',
-                    name: feedbackName || 'Anonymous',
-                    whatsapp: '',
-                    address: '',
-                    notes: '',
-                    feedback: feedbackText,
-                    rating: feedbackRating,
-                    created_at: new Date().toISOString()
-                };
+            // if (window.dataSdk) {
+            //     const feedbackData = {
+            //         type: 'feedback',
+            //         name: feedbackName || 'Anonymous',
+            //         whatsapp: '',
+            //         address: '',
+            //         notes: '',
+            //         feedback: feedbackText,
+            //         rating: feedbackRating,
+            //         created_at: new Date().toISOString()
+            //     };
 
-                const result = await window.dataSdk.create(feedbackData);
-                if (result.isOk) {
-                    showToast('Thank you for your feedback! 🙏');
-                    document.getElementById('feedback-form').reset();
-                    feedbackRating = 0;
-                    starButtons.forEach(b => {
-                        b.classList.remove('text-gold');
-                        b.classList.add('text-brown/20');
-                    });
-                } else {
-                    showToast('Failed to submit feedback. Please try again.');
-                }
-            }
+            //     const result = await window.dataSdk.create(feedbackData);
+            //     if (result.isOk) {
+            //         showToast('Thank you for your feedback! 🙏');
+            //         document.getElementById('feedback-form').reset();
+            //         feedbackRating = 0;
+            //         starButtons.forEach(b => {
+            //             b.classList.remove('text-gold');
+            //             b.classList.add('text-brown/20');
+            //         });
+            //     } else {
+            //         showToast('Failed to submit feedback. Please try again.');
+            //     }
+            // }
 
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Feedback';
+            // submitBtn.disabled = false;
+            // submitBtn.textContent = 'Submit Feedback';
+
+            const phoneNumber = "919463880165"; // replace with your number
+
+
+            // 📩 message
+            const message =
+                `New Website Feedback
+
+Name: ${feedbackName} || 'Anonymous'
+
+Rating: ${feedbackRating} ⭐
+
+Feedback:
+${feedbackText}`;
+
+
+            const encodedMessage = encodeURIComponent(message);
+
+
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+
+            // open whatsapp
+            window.open(whatsappURL, "_blank");
+
+
+            // ✔ success toast
+            showToast("Thank you for your feedback! ❤️");
+
+
+            // 🔄 clear form
+            document.getElementById("feedback-form").reset();
+
+            selectedRating = 0;
+
+            document.querySelectorAll(".star-btn").forEach(s => {
+                s.classList.remove("text-gold");
+                s.classList.add("text-brown/20");
+            });
+
+
         });
 
         // Testimonials Carousel
@@ -2002,6 +2043,7 @@ Thank you for choosing Ghee & Grains! 🙏`
             }
 
         });
+
         updateStickyCart();
         // Initialize
         updateUI();
